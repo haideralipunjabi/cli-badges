@@ -37,7 +37,7 @@ print(failedBadge, successBadge, skippedBadge)
 
 The above would output something similar to the terminal:
 
-![](./output-example.png)
+![output-example](https://raw.githubusercontent.com/haideralipunjabi/cli-badges/master/output-example.png)
 
 You could also create a donate badge with a link ([if supported](#links)):
 
@@ -48,7 +48,7 @@ donateBadge = badge('❤️ donate', 'ko-fi', messagelink='https://ko-fi.com/log
 print(donateBadge)
 ```
 
-![](./donate-output-example.png)
+![donate-output-example.png](https://raw.githubusercontent.com/haideralipunjabi/cli-badges/master/donate-output-example.png)
 
 You can also only show the label:
 
@@ -58,7 +58,7 @@ from cli_badges import badge
 onlyLabel = badge('❤️ donate', '')
 print(onlyLabel)
 ```
-![](./onlylabel-output-example.png)
+![onlylabel-output-example](https://raw.githubusercontent.com/haideralipunjabi/cli-badges/master/onlylabel-output-example.png)
 
 > Example output is a mock, console output will vary slightly from terminal to terminal.
 
@@ -109,7 +109,7 @@ You can output badges with a link attached to it, that can be clicked in some te
 ```python
 badge('with', 'link',  labellink='https://link.com', messagelink='https://link2.com');
 ```
-
+![withlink-output-example](https://raw.githubusercontent.com/haideralipunjabi/cli-badges/master/withlink-output-example.png)
 ### Other Projects
 * [cli-badges - NodeJS](https://github.com/nombrekeff/cli-badges)
 
