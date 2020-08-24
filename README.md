@@ -5,7 +5,7 @@
   Quirky little python library for generating badges for your cli apps.
   
   ![GitHub file size in bytes](https://img.shields.io/github/size/haideralipunjabi/cli-badges/cli_badges/cli_badges.py?style=flat-square)
-  
+  [![PyPI version](https://badge.fury.io/py/cli-badges.svg)](https://badge.fury.io/py/cli-badges)
 </div>
 
 ---
@@ -39,6 +39,17 @@ The above would output something similar to the terminal:
 
 ![](./output-example.png)
 
+You could also create a donate badge with a link ([if supported](#links)):
+
+```python
+from cli_badges import badge
+
+donateBadge = badge('❤️ donate', 'ko-fi', messagelink='https://ko-fi.com/logginjs');
+print(donateBadge)
+```
+
+![](./donate-output-example.png)
+
 You can also only show the label:
 
 ```python
@@ -47,6 +58,7 @@ from cli_badges import badge
 onlyLabel = badge('❤️ donate', '')
 print(onlyLabel)
 ```
+![](./onlylabel-output-example.png)
 
 > Example output is a mock, console output will vary slightly from terminal to terminal.
 
@@ -68,6 +80,8 @@ A badge is conformed of a label and a message `<label>:<message>`. Each segment 
 | messagewidth | Integer | label length + 2|
 | labelstyles | Array of Styles | `[]` |
 | messagestyles | Array of Styles | `[]`|
+| labellink | URL | `''` |
+| messagelink | URL | `''`|
 
 ### Colors
 
@@ -83,6 +97,18 @@ A badge is conformed of a label and a message `<label>:<message>`. Each segment 
 * underlined
 * reverse
 * hidden
+
+### Links
+
+You can output badges with a link attached to it, that can be clicked in some terminals. `labellink` option will add the link to the label, while `messagelink` option will add the link to the message.
+
+> #### ⚠︎ cli-badges will only output link if its supported by your terminal.
+
+> See [this](https://gist.github.com/egmontkob/eb114294efbcd5adb1944c9f3cb5feda) for information on supported terminals
+
+```python
+badge('with', 'link',  labellink='https://link.com', messagelink='https://link2.com');
+```
 
 ### Other Projects
 * [cli-badges - NodeJS](https://github.com/nombrekeff/cli-badges)

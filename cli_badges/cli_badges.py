@@ -18,14 +18,20 @@ def __apply_formats(text,styles):
             text = stylize(text,colored.attr(style))
     return text
 
-def badge(label='', message='', messagebg='blue',labelbg='dark_gray', messagecolor='white', labelcolor='white',labelwidth=None,messagewidth=None,labelstyles=None,messagestyles=None):
+def link(text,url):
+    return "\u001B]8;;{}\u0007{}\u001B]8;;\u0007".format(url,text)
+
+def badge(label='', message='', messagebg='blue',labelbg='dark_gray', messagecolor='white', labelcolor='white',labelwidth=None,messagewidth=None,labelstyles=None,messagestyles=None,labellink='',messagelink=''):
     if not labelstyles:
         labelstyles=[]
     if not messagestyles:
         messagestyles=[]
     labelstyles.extend([labelcolor,labelbg])
     messagestyles.extend([messagecolor,messagebg])
-    
+    if labellink:
+        label = link(label,labellink)
+    if messagelink:
+        message = link(message,messagelink)
     label_formatted = __apply_formats(__padd(str(label),labelwidth),labelstyles)
     message_formatted = __apply_formats(__padd(str(message),messagewidth),messagestyles)
     return label_formatted+message_formatted
