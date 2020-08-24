@@ -10,6 +10,8 @@
 
 ---
 
+**Inspired & Python Port of *[cli-badges - nombrekeff](https://github.com/nombrekeff/cli-badges)***
+
 ## Getting Started
 
 ### Installing
