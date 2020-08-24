@@ -37,7 +37,7 @@ print(failedBadge, successBadge, skippedBadge)
 
 The above would output something similar to the terminal:
 
-![output-example](https://raw.githubusercontent.com/haideralipunjabi/cli-badges/master/output-example.png)
+![output-example](https://raw.githubusercontent.com/haideralipunjabi/cli-badges/master/basic-output-example.png)
 
 You could also create a donate badge with a link ([if supported](#links)):
 
