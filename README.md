@@ -14,7 +14,7 @@
 
 ### Installing
 
-As usual, you need to install from npm/yarn:
+As usual, you need to install from PIP:
 
 ```
 $ pip install cli-badges
