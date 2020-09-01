@@ -140,3 +140,4 @@ cython_debug/
 main.py
 .vscode
 *.svg
+themes.json

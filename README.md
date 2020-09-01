@@ -84,6 +84,7 @@ A badge is conformed of a label and a message `<label>:<message>`. Each segment 
 | messagestyles | Array of Styles | `[]`|
 | labellink | URL | `''` |
 | messagelink | URL | `''`|
+| theme | Theme | None |
 
 ### Colors
 
@@ -112,9 +113,71 @@ You can output badges with a link attached to it, that can be clicked in some te
 badge('with', 'link',  labellink='https://link.com', messagelink='https://link2.com');
 ```
 ![withlink-output-example](https://raw.githubusercontent.com/haideralipunjabi/cli-badges/master/withlink-output-example.png)
+
+
+### Themes
+
+![theme-image](https://raw.githubusercontent.com/haideralipunjabi/cli-badges/master/themes.png)
+
+Themes are a way to store badge configuration for repeated use. All the options (except for the theme option, obviously) that are needed by the badge can be stored by making a theme.  
+The library comes with a set of inbuilt themes, but you can also define your own
+
+#### Inbuilt Themes
+
+* **red** : Red Message Background
+* **green** : Green Message Background
+* **yellow** : Black Colored Message on Yellow Background
+* **cyan** : Black Colored Message on Cyan Background
+* **magenta** : Black Colored Message on Magenta Background
+* **success** : 'Success' Message on Green Background
+* **failed** : 'Failed' Message on Red Background
+
+#### Using Themes
+`THEME` stores all the available themes, and has to be passed to the `badge()` functions `theme` argument. Arguments present in the theme will override the passed arguments. Missing arguments will have default values
+
+```python
+from cli_badges import badge,THEME
+red_badge = badge('Red','Badge',theme=THEME.red)
+print(red_badge)
+```
+
+#### Adding New Themes
+
+1. Directly in Code  
+To add a Theme directly, `add_theme(name,config)` function is used. `name` is the name of the theme, `config` is a `dict` containing the required options
+
+    ```python
+    from cli_badges import badge,add_theme, THEME
+    add_theme('donate',{
+        'label': '❤️ donate'
+    })
+    donate_badge = badge(message='kofi',theme=THEME.donate)
+    print(donate_badge)
+    ```
+  
+2. From a JSON File  
+You can store the Theme configurations in a `json` file and load them using `load_themes(file)` function where `file` is the Theme `json` file
+
+    ```json
+    # themes.json
+    {
+        "redblue": {
+            "messagebg": "blue",
+            "labelbg":"red",
+            "messagestyles": ["bold"]
+        }
+    }
+    ```
+
+    ```python
+    from cli_badges import badge, load_themes, THEME
+    load_themes(open("themes.json","r"))
+    redblue_badge = badge('RED','BLUE',theme=THEME.redblue)
+    print(redblue_badge)
+    ```
+
 ### Other Projects
 * [cli-badges - NodeJS](https://github.com/nombrekeff/cli-badges)
-
 ---
 
 Contributions are very welcomed 🥰
