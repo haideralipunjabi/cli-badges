@@ -190,8 +190,12 @@ print(normal_badge,inverted_badge)
 ```
 ![invert-example](https://raw.githubusercontent.com/haideralipunjabi/cli-badges/master/invert-example.png)
 
-### Other Projects
-* [cli-badges - NodeJS](https://github.com/nombrekeff/cli-badges)
+### Other Libraries?
+
+cli-badges is also available in other languages:
+
+- `Node` [@nombrekeff/cli-badges](https://github.com/nombrekeff/cli-badges)
+- `Deno` [@Delta456/cli_badges](https://github.com/Delta456/cli_badges)
 ---
 
 Contributions are very welcomed 🥰
