@@ -141,3 +141,4 @@ main.py
 .vscode
 *.svg
 themes.json
+distribute
