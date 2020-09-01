@@ -3,7 +3,7 @@ import colored
 from colored import stylize
 from types import SimpleNamespace
 import json
-
+from copy import deepcopy
 __THEMES = {
     'red': {
         'messagebg': 'red'
@@ -58,12 +58,14 @@ def __link(text, url):
     return "\u001B]8;;{}\u0007{}\u001B]8;;\u0007".format(url, text)
 
 
-def badge(label='', message='', messagebg='blue', labelbg='dark_gray', messagecolor='white', labelcolor='white', labelwidth=None, messagewidth=None, labelstyles=None, messagestyles=None, labellink='', messagelink='', theme=None):
+def badge(label='', message='', messagebg='blue', labelbg='dark_gray', messagecolor='white', labelcolor='white', labelwidth=None, messagewidth=None, labelstyles=None, messagestyles=None, labellink='', messagelink='', invert=False,theme=None):
     if type(theme) == dict:
-        for k,v in locals().items():
-            if k not in theme.keys() and k!='theme':
-                theme[k] = v
-        return badge(**theme)
+        args = locals()
+        options = deepcopy(theme)
+        for k,v in args.items():
+            if k not in options.keys() and k!='theme':
+                options[k] = v
+        return badge(**options)
     if not labelstyles:
         labelstyles = []
     if not messagestyles:
@@ -75,9 +77,9 @@ def badge(label='', message='', messagebg='blue', labelbg='dark_gray', messageco
     if messagelink:
         message = __link(message, messagelink)
     label_formatted = __apply_formats(
-        __padd(str(label), labelwidth), labelstyles)
+        __padd(str(label), labelwidth), (labelstyles if not invert else messagestyles))
     message_formatted = __apply_formats(
-        __padd(str(message), messagewidth), messagestyles)
+        __padd(str(message), messagewidth), (messagestyles if not invert else labelstyles))
     return label_formatted+message_formatted
 
 def add_theme(name,config):

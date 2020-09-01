@@ -84,6 +84,7 @@ A badge is conformed of a label and a message `<label>:<message>`. Each segment 
 | messagestyles | Array of Styles | `[]`|
 | labellink | URL | `''` |
 | messagelink | URL | `''`|
+| invert | boolean | False |
 | theme | Theme | None |
 
 ### Colors
@@ -133,6 +134,7 @@ The library comes with a set of inbuilt themes, but you can also define your own
 * **failed** : 'Failed' Message on Red Background
 
 #### Using Themes
+
 `THEME` stores all the available themes, and has to be passed to the `badge()` functions `theme` argument. Arguments present in the theme will override the passed arguments. Missing arguments will have default values
 
 ```python
@@ -175,6 +177,18 @@ You can store the Theme configurations in a `json` file and load them using `loa
     redblue_badge = badge('RED','BLUE',theme=THEME.redblue)
     print(redblue_badge)
     ```
+
+### Inverting Styles
+
+The `invert` option is used to apply the message styles to the label and vice-versa
+
+```python
+from cli_badges import badge
+normal_badge = badge('RED','BLUE',labelbg='red', messagebg='blue')
+inverted_badge = badge('RED','BLUE',labelbg='red', messagebg='blue',invert=True)
+print(normal_badge,inverted_badge)
+```
+![invert-example](https://raw.githubusercontent.com/haideralipunjabi/cli-badges/master/invert-example.png)
 
 ### Other Projects
 * [cli-badges - NodeJS](https://github.com/nombrekeff/cli-badges)
