@@ -58,7 +58,7 @@ def __link(text, url):
     return "\u001B]8;;{}\u0007{}\u001B]8;;\u0007".format(url, text)
 
 
-def badge(label='', message='', messagebg='blue', labelbg='dark_gray', messagecolor='white', labelcolor='white', labelwidth=None, messagewidth=None, labelstyles=None, messagestyles=None, labellink='', messagelink='', invert=False,theme=None):
+def badge(label='', message='', messagebg='blue', labelbg='dark_gray', messagecolor='white', labelcolor='white', labelwidth=None, messagewidth=None, labelstyles=None, messagestyles=None, labellink='', messagelink='', swap=False,theme=None):
     if type(theme) == dict:
         args = locals()
         options = deepcopy(theme)
@@ -77,9 +77,9 @@ def badge(label='', message='', messagebg='blue', labelbg='dark_gray', messageco
     if messagelink:
         message = __link(message, messagelink)
     label_formatted = __apply_formats(
-        __padd(str(label), labelwidth), (labelstyles if not invert else messagestyles))
+        __padd(str(label), labelwidth), (labelstyles if not swap else messagestyles))
     message_formatted = __apply_formats(
-        __padd(str(message), messagewidth), (messagestyles if not invert else labelstyles))
+        __padd(str(message), messagewidth), (messagestyles if not swap else labelstyles))
     return label_formatted+message_formatted
 
 def add_theme(name,config):

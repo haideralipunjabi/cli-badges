@@ -84,7 +84,7 @@ A badge is conformed of a label and a message `<label>:<message>`. Each segment 
 | messagestyles | Array of Styles | `[]`|
 | labellink | URL | `''` |
 | messagelink | URL | `''`|
-| invert | boolean | False |
+| swap | boolean | False |
 | theme | Theme | None |
 
 ### Colors
@@ -178,17 +178,17 @@ You can store the Theme configurations in a `json` file and load them using `loa
     print(redblue_badge)
     ```
 
-### Inverting Styles
+### Swapping Styles
 
-The `invert` option is used to apply the message styles to the label and vice-versa
+The `swap` option is used to apply the message styles to the label and vice-versa
 
 ```python
 from cli_badges import badge
 normal_badge = badge('RED','BLUE',labelbg='red', messagebg='blue')
-inverted_badge = badge('RED','BLUE',labelbg='red', messagebg='blue',invert=True)
-print(normal_badge,inverted_badge)
+swapped_badge = badge('RED','BLUE',labelbg='red', messagebg='blue',swap=True)
+print(normal_badge,swapped_badge)
 ```
-![invert-example](https://raw.githubusercontent.com/haideralipunjabi/cli-badges/master/invert-example.png)
+![swap-example](https://raw.githubusercontent.com/haideralipunjabi/cli-badges/master/invert-example.png)
 
 ### Other Libraries?
 
